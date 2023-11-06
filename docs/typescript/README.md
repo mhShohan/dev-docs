@@ -17,6 +17,7 @@ TypeScript is a strongly typed programming language that builds on JavaScript, g
    - [Non-Primitive types](#non-primitive-data-types)
    - [Function](#function)
    - [Union and Intersection types](#union-and-intersection-types)
+   - [Enum Type](#enum-type)
 4. [Type Alias](#type-alias)
 5. [Interface](#interfaces)
 6. [Type Assertion](#type-assertion)
@@ -238,6 +239,20 @@ type Person = { name: 'string' };
 type Employee = { role: 'employee' };
 
 type EmployeeRole = Person & Employee;
+```
+
+# Enum type
+
+```ts
+enum Role {
+  ADMIN = 'ADMIN',
+  SUPER_ADMIN = 'SUPER_ADMIN',
+  OPERATOR = 'OPERATOR',
+}
+
+const admin: string = Role.ADMIN;
+const superAdmin: string = Role.SUPER_ADMIN;
+const operator: string = Role.OPERATOR;
 ```
 
 ## Type Alias
