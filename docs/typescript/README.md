@@ -25,6 +25,16 @@ TypeScript is a strongly typed programming language that builds on JavaScript, g
 9. [Conditional Types](#conditional-types)
 10. [Mapped Types](#mapped-types)
 11. [Utility Types](#utility-types)
+12. [Object Oriented Programming(OOP)](#object-oriented-programmingoop)
+13. [Object Oriented Programming(OOP) With TypeScript](#object-oriented-programmingoop-with-typescript)
+    - [Basic structure of a class](#basic-structure-of-a-class)
+    - [Inheritance](#inheritance)
+    - [Access modifiers](#access-modifiers)
+    - [Getter and Setter function](#getter-and-setter-function)
+    - [Statics](#statics)
+    - [Polymorphism](#polymorphism)
+    - [Abstraction](#abstraction)
+    - [Encapsulation](#encapsulation)
 
 # Pros and Cons of Typescript
 
@@ -678,4 +688,423 @@ const emptyObject: Record<string, unknown> = {
   lastName: 'Example',
   age: 26,
 };
+```
+
+# Object Oriented Programming(OOP)
+
+Object-oriented programming (OOP) is a programming paradigm or style that organizes and models software as a collection of objects, each of which represents an instance of a class.
+
+## 4 main pillars of OOP
+
+- `Inheritance`: The ability of creating a new class from an existing class. Inheritance is when an object acquires the property of another object. Inheritance allows a class to acquire the properties and behavior,
+- `Polymorphism`: Polymorphism allows objects of different classes to be treated as objects of a common superclass. It enables the same interface (method name) to be used for different data types or objects, and it provides flexibility in method implementation.
+- `Abstraction`: Hiding the implementation details inside and providing the necessary method to work.
+- `Encapsulation`: The action of enclosing something or in a capsule. Encapsulation is the concept of bundling data and methods that operate on that data into a single unit, an object. Encapsulation means that each object in your code should control it's own state. State is the current snapshot.
+
+# Object Oriented Programming(OOP) with typescript
+
+## Basic structure of a class
+
+Classes are the blueprints or templates for creating objects. They define the structure, attributes, and methods that objects of that class will have. Objects, on the other hand, are instances of classes that hold specific data and can perform actions.
+
+```ts
+class Book {
+  id: string;
+  name: string;
+  author: string;
+
+  constructor(id: string, name: string, author: string) {
+    this.id = id;
+    this.name = name;
+    this.author = author;
+  }
+
+  printBook() {
+    console.log({
+      id: this.id,
+      name: this.name,
+      author: this.author,
+    });
+  }
+}
+
+const bookOne = new Book('1', 'Deep Word', 'Cal Newport');
+bookOne.printBook();
+
+// ------------- Short Hand ------------------------
+class BookShortHand {
+  // parameter properties
+  constructor(public id: string, public name: string, public author: string) {}
+
+  printBook() {
+    console.log({
+      id: this.id,
+      name: this.name,
+      author: this.author,
+    });
+  }
+}
+
+const bookTwo = new BookShortHand('1', 'Deep Word', 'Cal Newport');
+bookTwo.printBook();
+```
+
+## Inheritance
+
+The ability of creating a new class from an existing class. Inheritance is when an object acquires the property of another object. Inheritance allows a class to acquire the properties and behavior
+
+```ts
+class Person {
+  public id: string;
+  public name: string;
+  public email: string;
+
+  constructor(name: string, email: string) {
+    this.id = Date.now().toString();
+    this.name = name;
+    this.email = email;
+  }
+
+  print() {
+    console.log({ name: this.name, email: this.email });
+  }
+}
+
+class Student extends Person {
+  public department: string;
+  constructor(name: string, email: string, department: string) {
+    super(name, email);
+    this.department = department;
+  }
+
+  printStudent(): void {
+    console.log({
+      name: this.name,
+      email: this.email,
+      department: this.department,
+    });
+  }
+}
+
+class Teacher extends Student {
+  public designation: string;
+
+  constructor(name: string, email: string, department: string, designation: string) {
+    super(name, email, department);
+    this.designation = designation;
+  }
+
+  printTeacher(): void {
+    console.log({
+      name: this.name,
+      email: this.email,
+      department: this.department,
+      designation: this.designation,
+    });
+  }
+}
+
+const person = new Person('Mr. Person', 'person@gmail.com');
+const student = new Student('Mr. Student', 'student@gmail.com', 'EEE');
+const teacher = new Teacher('Mr. Teacher', 'teacher@gmail.com', 'EEE', 'Lecturer');
+
+person.print();
+student.print();
+teacher.print();
+```
+
+## Access modifiers
+
+```ts
+/**
+ *  - readonly   => cannot modify or update
+ *  - public     => can access anywhere
+ *  - private    => only accessible within class, cannot be accessible inside of inherited class
+ *  - protected  => accessible within own class, also inherited class
+ */
+
+class BankAccount {
+  public readonly id: string;
+  protected _name: string;
+  private _balance: number;
+
+  constructor(id: string, name: string, balance: number) {
+    this.id = id;
+    this._name = name;
+    this._balance = balance;
+  }
+
+  deposit(amount: number) {
+    this._balance += amount;
+  }
+
+  getAccountInfo() {
+    return { id: this.id, name: this._name, ballance: this._balance };
+  }
+}
+
+const bankAccountOne = new BankAccount('1', 'Mr. Z', 100);
+```
+
+## Getter and Setter function
+
+```ts
+class ModuleFinished {
+  private count = 5;
+
+  constructor() {}
+
+  get finishedModule(): number {
+    return this.count;
+  }
+
+  set addModule(val: number) {
+    this.count = this.count + val;
+  }
+}
+
+const course = new ModuleFinished();
+// getter function of ModuleFinished class, invoking system is like accessing object
+// can access like a property of an object
+console.log(course.finishedModule);
+
+//setter function
+course.addModule = 1;
+course.addModule = 2;
+console.log(course.finishedModule);
+```
+
+## Statics
+
+In object-oriented programming (OOP), the static keyword is used to define properties and methods that belong to the class itself, rather than to instances (objects) of the class. These static members are shared across all instances of the class and can be accessed using the class name rather than an instance.
+
+```ts
+class Circle {
+  static pi: number = 3.14159;
+  radius: number;
+
+  constructor(radius: number) {
+    this.radius = radius;
+  }
+
+  circumference() {
+    return 2 * Circle.pi * this.radius;
+  }
+}
+
+const circle1 = new Circle(5);
+const circle2 = new Circle(10);
+
+console.log(Circle.pi); // Accessing the static property
+console.log(circle1.circumference()); // Using the instance method
+console.log(circle2.circumference()); // Using the instance method
+
+//------------------------------------------
+class MathUtil {
+  static add(x: number, y: number): number {
+    return x + y;
+  }
+
+  static multiply(x: number, y: number): number {
+    return x * y;
+  }
+}
+
+const sum = MathUtil.add(3, 4); // Using the static method
+const product = MathUtil.multiply(5, 6); // Using the static method
+
+console.log(sum); // Output: 7
+console.log(product); // Output: 30
+```
+
+## Polymorphism
+
+If any particular method of any class, redesigned on other inherited class then we get different output, it is Polymorphism.
+
+```ts
+class Person {
+  public id: string;
+  public name: string;
+  public email: string;
+
+  constructor(name: string, email: string) {
+    this.id = Date.now().toString();
+    this.name = name;
+    this.email = email;
+  }
+
+  print() {
+    console.log({ name: this.name, email: this.email });
+  }
+}
+
+class Student extends Person {
+  public department: string;
+  constructor(name: string, email: string, department: string) {
+    super(name, email);
+    this.department = department;
+  }
+
+  print() {
+    console.log({
+      name: this.name,
+      email: this.email,
+      department: this.department,
+    });
+  }
+}
+
+class Teacher extends Student {
+  public designation: string;
+
+  constructor(name: string, email: string, department: string, designation: string) {
+    super(name, email, department);
+    this.designation = designation;
+  }
+
+  print() {
+    console.log({
+      name: this.name,
+      email: this.email,
+      department: this.department,
+      designation: this.designation,
+    });
+  }
+}
+
+const person = new Person('Mr. Person', 'person@gmail.com');
+const student = new Student('Mr. Student', 'student@gmail.com', 'EEE');
+const teacher = new Teacher('Mr. Teacher', 'teacher@gmail.com', 'EEE', 'Lecturer');
+
+person.print();
+student.print();
+teacher.print();
+```
+
+## Abstraction
+
+Abstraction in programming refers to the concept of hiding complex implementation details and exposing only the necessary information or functionalities to the user.
+
+```ts
+//------------------------
+// Using interface
+//------------------------
+interface TakePhoto {
+  cameraMode: string;
+  filter: string;
+  burst: number;
+}
+
+//implements of properties in class
+interface CountLikes {
+  likes: number;
+}
+
+//implements of methods in Class
+interface Story {
+  createStory(): void;
+}
+
+class Instagram implements TakePhoto, Story, CountLikes {
+  constructor(
+    public cameraMode: string,
+    public filter: string,
+    public burst: number,
+    public likes: number
+  ) {}
+
+  createStory(): void {
+    console.log({
+      cameraMode: this.cameraMode,
+      filter: this.filter,
+      burst: this.burst,
+      likes: this.likes,
+    });
+  }
+}
+
+//------------------------
+// Using Abstract class => cannot create instance of any abstract class
+//------------------------
+abstract class Shape {
+  constructor(protected color: string) {}
+
+  abstract getArea(): number; // Abstract method without implementation
+}
+
+class Circle extends Shape {
+  constructor(public radius: number, color: string) {
+    super(color);
+  }
+
+  getArea(): number {
+    return Math.PI * this.radius ** 2;
+  }
+}
+
+class Rectangle extends Shape {
+  constructor(private width: number, private height: number, color: string) {
+    super(color);
+  }
+
+  getArea(): number {
+    return this.width * this.height;
+  }
+}
+
+const redCircle = new Circle(5, 'red');
+const blueRectangle = new Rectangle(4, 6, 'blue');
+
+console.log(redCircle.getArea()); // Output: 78.53981633974483
+console.log(blueRectangle.getArea()); // Output: 24
+```
+
+## Encapsulation
+
+Encapsulation is one of the fundamental principles of object-oriented programming (OOP). It involves bundling data (attributes or properties) and methods (functions) that operate on that data into a single unit, called an object. This unit is responsible for controlling access to its internal state and ensuring that data remains in a consistent and valid state. Encapsulation promotes data hiding and provides a way to protect data from unauthorized access and modification.
+
+```ts
+class Student {
+  private name: string;
+  private age: number;
+
+  constructor(name: string, age: number) {
+    this.name = name;
+    this.age = age;
+  }
+
+  // Getter method for 'name'
+  public getName(): string {
+    return this.name;
+  }
+
+  // Setter method for 'name'
+  public setName(name: string): void {
+    this.name = name;
+  }
+
+  // Getter method for 'age'
+  public getAge(): number {
+    return this.age;
+  }
+
+  // Setter method for 'age'
+  public setAge(age: number): void {
+    if (age >= 0) {
+      this.age = age;
+    }
+  }
+}
+
+const student = new Student('Alice', 20);
+
+// Accessing and modifying properties through getter and setter methods
+console.log(student.getName()); // Output: Alice
+console.log(student.getAge()); // Output: 20
+
+student.setName('Bob');
+student.setAge(25);
+
+console.log(student.getName()); // Output: Bob
+console.log(student.getAge()); // Output: 25
 ```
