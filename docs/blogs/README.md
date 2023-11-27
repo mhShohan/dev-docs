@@ -1,1 +1,2 @@
 - [Define React Routes With Better Approach (TypeScript)](https://medium.com/@ahsan-ali-mansoor/define-react-routes-with-better-approach-typescript-d07de782b517)
+- [Setup linting with typescript - eslint and prettier](https://blog.logrocket.com/linting-typescript-eslint-prettier)
