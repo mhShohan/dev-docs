@@ -7,7 +7,7 @@ Welcome to the developer documentation portal.
 1. [Contributing Guidelines (Git)](./docs/git-guidance/README.md)
 2. [TypeScript Documentation](./docs/typescript/README.md)
 3. [React TypeScript](./docs/typescript/typescript-react.md)
-
+4. [Redux-toolkit Configuration with TypeScript](./docs/typescript/rtk-query.md)
 <!-- # Interview Preparation -->
 
 # How to Contribute
