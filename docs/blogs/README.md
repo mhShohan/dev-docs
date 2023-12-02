@@ -1,2 +1,6 @@
 - [Define React Routes With Better Approach (TypeScript)](https://medium.com/@ahsan-ali-mansoor/define-react-routes-with-better-approach-typescript-d07de782b517)
 - [Setup linting with typescript - eslint and prettier](https://blog.logrocket.com/linting-typescript-eslint-prettier)
+- [Data Structure - freeCodeCamp](https://www.freecodecamp.org/news/data-structures-the-key-to-scalable-software)
+- [Solid Principle](https://systemweakness.com/unraveling-solid-principles-a-beginners-guide-to-software-development-fundamentals-03c891c5309e)
+- [TypeScript React](https://www.freecodecamp.org/news/use-typescript-with-react/?ref=dailydev)
+- [OOP Design Patterns in Javascript](https://dev.to/alexmercedcoder/oop-design-patterns-in-javascript-3i98?ref=dailydev)
