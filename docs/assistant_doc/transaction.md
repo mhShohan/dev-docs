@@ -1,19 +1,29 @@
-```ts
-const session = await mongoose.startSession();
-try {
-  await session.startTransaction();
+# Example of using transaction in mongoose
 
-  const result = await Team.create([payload], { session });
-  await TeamMember.create([{ userId: payload.creatorId, teamId: result[0]?._id }], { session });
+```
+const example = async () => {
+    const session = await conn.startSession();
 
-  await session.commitTransaction();
-  await session.endSession();
+    try {
+        session.startTransaction();
 
-  return result[0];
-} catch (error) {
-  await session.abortTransaction();
-  await session.endSession();
+        await Model.create([{ /* payload */ }], { session });
 
-  throw new CustomError(StatusCode.BAD_REQUEST, 'Team cannot be created');
+        await Model.deleteOne({ /* conditions */ }, { session });
+
+        await Model.updateOne({ /* conditions */ }, { /* payload */ }, { session } );
+
+        await Model.findByIdAndUpdate(_id, { /* payload */  }, { session });
+
+        const user = new Model( /* payload */);
+        await user.save({ session });
+
+        await session.commitTransaction();
+
+    } catch (error) {
+        await session.abortTransaction();
+    }
+    session.endSession();
+    session.endSession();
 }
 ```
