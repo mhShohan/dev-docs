@@ -35,6 +35,7 @@ const example = async () => {
     } catch (error) {
         await session.abortTransaction();
     } finally {
-    await session.endSession();
+        await session.endSession();
+    }
   }
 ```
