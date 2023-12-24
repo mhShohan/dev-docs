@@ -1,4 +1,16 @@
-# Example of using transaction in mongoose
+# Transaction and rollback
+
+Transactions allow you to run a series of operations that do not change any data until the entire transaction is committed. If any operation in the transaction fails, the driver ends the transaction and discards all data changes before they ever become visible. This feature is called atomicity.
+
+This provides the following methods to implement transactions:
+
+- `startSession()` - creates a new ClientSession instance
+- `startTransaction()` - starts a new transaction
+- `commitTransaction()` - commits the active transaction in the session that it was created in
+- `abortTransaction()` - ends the active transaction in the session that it was created in
+- `endSession()` - ends the active session
+
+### Example of using transaction in mongoose
 
 ```
 const example = async () => {
@@ -22,8 +34,7 @@ const example = async () => {
 
     } catch (error) {
         await session.abortTransaction();
-    }
-    session.endSession();
-    session.endSession();
-}
+    } finally {
+    await session.endSession();
+  }
 ```
