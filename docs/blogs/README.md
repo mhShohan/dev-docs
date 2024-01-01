@@ -4,3 +4,4 @@
 - [Solid Principle](https://systemweakness.com/unraveling-solid-principles-a-beginners-guide-to-software-development-fundamentals-03c891c5309e)
 - [TypeScript React](https://www.freecodecamp.org/news/use-typescript-with-react/?ref=dailydev)
 - [OOP Design Patterns in Javascript](https://dev.to/alexmercedcoder/oop-design-patterns-in-javascript-3i98?ref=dailydev)
+- [Studio 3T Documentation](https://studio3t.com/knowledge-base/articles/mongodb-aggregation-framework/#mongodb-aggregate-pipeline-syntax)
