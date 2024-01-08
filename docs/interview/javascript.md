@@ -6,7 +6,7 @@ Answer: JavaScript is a high-level, interpreted programming language primarily u
 
 Answer:
 
-- var is function-scoped, and it can be redeclared.
+- var is function-scoped, and it can be redeclare.
 - let is block-scoped and allows reassignment.
 - const is also block-scoped but cannot be reassigned after declaration.
 
@@ -53,6 +53,13 @@ Answer: A callback function is a function passed as an argument to another funct
 ### 12. Higher-order function
 
 Answer: A higher-order function is a function that takes one or more functions as arguments or returns a function as its result. They are often used to create more abstract and reusable code.
+
+```js
+function operation(a, b, cb) {
+  return cb(a, b);
+}
+const result = operation(10, 20, (x, y) => x + y);
+```
 
 ### 13. Pure function
 
