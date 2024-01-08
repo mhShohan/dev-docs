@@ -44,10 +44,39 @@ Answer: Hoisting is a JavaScript mechanism where variable and function declarati
 
 ### 10. What is the difference between null and undefined in JavaScript?
 
-Answer:
+Answer: `null` is an assignment value representing the intentional absence of any object value, while `undefined` is a variable that has been declared but has not yet been assigned a value.
 
-- `null` is an assignment value representing the intentional absence of any object value.
-- `undefined` is a variable that has been declared but has not yet been assigned a value.
+### 11. Callback function
+
+Answer: A callback function is a function passed as an argument to another function, which is then invoked inside the outer function. Callbacks are often used to handle asynchronous operations or to define behavior that will be executed later.
+
+### 12. Higher-order function
+
+Answer: A higher-order function is a function that takes one or more functions as arguments or returns a function as its result. They are often used to create more abstract and reusable code.
+
+### 13. Pure function
+
+Answer: A pure function is a function that always produces the same output for the same input, has no side effects (doesn't modify external state), and is predictable, making it easier to understand, test, and reason about in code.
+
+### 14. Closure
+
+Answer: A closure in JavaScript is the combination of a function and the lexical environment within which that function was declared. Where outer function variable's are accessible into the inner function.
+
+```js
+function outerFunction(x) {
+  return (y) => {
+    return x + y; // innerFunction has access to x from outerFunction
+  };
+}
+```
+
+### 15. Promise
+
+Answer: Promise is an object that will produce a single value some time in the future. If the promise is successful, it will produce a resolved value, but if something goes wrong then it will produce a reason why the promise failed.
+
+### 16. What is the purpose of the Map and Set objects in JavaScript?
+
+Answer: Map is an object that holds key-value pairs, allowing any data type as keys. Set is an object that stores unique values. Both provide efficient ways to manage collections of data.
 
 ### Event Loop
 
@@ -60,20 +89,6 @@ Event loop হলো js runtime এর একটা পার্ট যা async
 - Callback execution: jokhn asynchronous operation complete hoy tokhn callback abar callback queue te fire jay
 - repeat
 
-### Higher Order Function
-
-Higher order function ek dhoroner function ja ek bar eker beshi function argument hishebe ney and result hishebe function return kore
-
-### Closure
-
-closure is a function that enclose with lexical scope. Mane outer function er variable gula inner function a accessable
-
-### callback fucntion
-
-### promise
-
-a Promise is an object that will produce a single value some time in the future. If the promise is successful, it will produce a resolved value, but if something goes wrong then it will produce a reason why the promise failed.
-
 1. Hoisting কি ?
 2. Closure কি ?
 3. Bind, call, apply কি ?
@@ -83,3 +98,48 @@ a Promise is an object that will produce a single value some time in the future.
 7. Rest operator কি এবং implementation ?
 8. useEffect কি এবং কেন ব্যবহার করব ?
 9. React য়ের কিছু hook সম্পর্কে বল ?
+
+//----------------------------------------------------------------------------- \
+//-----------------------------------------------------------------------------
+
+- What is the event delegation in JavaScript?
+
+  Answer: Event delegation is a technique where a single event listener is attached to a common ancestor rather than individual elements. It leverages event bubbling to manage events efficiently.
+
+- Explain the concept of prototypal inheritance in JavaScript.
+
+  Answer: In JavaScript, objects can inherit properties and methods from other objects through their prototype chain. Each object has a prototype object, and properties/methods are looked up in the prototype chain.
+
+- What is the significance of the new keyword when creating objects?
+
+  Answer: The new keyword is used to create an instance of a constructor function in JavaScript. It sets up a new object, sets the constructor's prototype as the new object's prototype, and executes the constructor function.
+
+- What is a callback hell, and how can it be avoided?
+
+  Answer: Callback hell (or pyramid of doom) refers to deeply nested callback functions, often seen in asynchronous JavaScript. It can be avoided using techniques like promises, async/await, or modularizing code.
+
+- What is the this keyword in JavaScript, and how does it differ from regular function calls to arrow function calls?
+
+  Answer: The this keyword refers to the object it belongs to. Arrow functions don't have their own this; they inherit it from the enclosing scope.
+
+- What is the purpose of the bind method, and how does it work?
+
+  Answer: The bind method is used to create a new function with a specific this value. It does not invoke the function immediately but returns a new function that can be invoked later.
+
+- Explain the concept of promises and how they help with asynchronous programming.
+
+  Answer: Promises are objects representing the eventual completion or failure of an asynchronous operation. They simplify handling asynchronous code and make it more readable, replacing callback-based patterns.
+
+- What are arrow functions in JavaScript, and how do they differ from regular functions?
+
+  Answer: Arrow functions are a concise way to write functions in JavaScript. They don't have their own this and arguments bindings, making them especially useful in callback scenarios.
+
+### What is promise and how it work.
+
+Answer: A promise in JavaScript is an object that represents the eventual completion or failure of an asynchronous operation. It is a way to handle operations that take time to complete, such as fetching data from a server or reading a file, without blocking the rest of the code.\
+
+A promise has three states:
+
+- Pending: The initial state; the promise is neither fulfilled nor rejected.
+- Fulfilled: The operation completed successfully, and the promise has a resulting value.
+- Rejected: The operation failed, and the promise has a reason for the failure.
