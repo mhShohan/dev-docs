@@ -10,7 +10,18 @@ Welcome to the developer documentation portal.
 4. [Redux-toolkit Configuration with TypeScript](./docs/typescript/rtk-query.md)
 5. [MongoDB Transactions](./docs/assistant_doc/transaction.md)
 6. [PostgreSQL](./docs/postgreSQL/README.md)
-<!-- # Interview Preparation -->
+
+# Interview Preparation
+
+- [JavaScript and TypeScript](./docs/interview/javascript.md)
+- [Frontend Development - React, Next.js, Redux-toolkit]()
+- [Backend Development - Node.js, Express.js]()
+- [MongoDB and mongoose]()
+- [PostgreSQL and prisma]()
+- [Database Management System (DBMS)]()
+- [Load Balancing]()
+- [Rate Limiting]()
+- [Computer Networking]()
 
 # How to Contribute
 

@@ -5,3 +5,4 @@
 - [TypeScript React](https://www.freecodecamp.org/news/use-typescript-with-react/?ref=dailydev)
 - [OOP Design Patterns in Javascript](https://dev.to/alexmercedcoder/oop-design-patterns-in-javascript-3i98?ref=dailydev)
 - [Studio 3T Documentation](https://studio3t.com/knowledge-base/articles/mongodb-aggregation-framework/#mongodb-aggregate-pipeline-syntax)
+- [Cloudinary Uploads from react](https://www.mridul.tech/blogs/how-to-upload-images-to-cloudinary-with-react-js#Introduction_to_Cloudinary)
