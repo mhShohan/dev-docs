@@ -11,7 +11,7 @@ Welcome to the developer documentation portal.
 5. [MongoDB Transactions](./docs/assistant_doc/transaction.md)
 6. [PostgreSQL](./docs/postgreSQL/README.md)
 
-# Interview Preparation
+<!-- # Interview Preparation
 
 - [JavaScript and TypeScript](./docs/interview/javascript.md)
 - [Frontend Development - React, Next.js, Redux-toolkit]()
@@ -21,7 +21,7 @@ Welcome to the developer documentation portal.
 - [Database Management System (DBMS)]()
 - [Load Balancing]()
 - [Rate Limiting]()
-- [Computer Networking]()
+- [Computer Networking]() -->
 
 # How to Contribute
 
