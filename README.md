@@ -11,10 +11,11 @@ Welcome to the developer documentation portal.
 5. [MongoDB Transactions](./docs/assistant_doc/transaction.md)
 6. [PostgreSQL](./docs/postgreSQL/README.md)
 
-<!-- # Interview Preparation
+# Interview Preparation
 
-- [JavaScript and TypeScript](./docs/interview/javascript.md)
-- [Frontend Development - React, Next.js, Redux-toolkit]()
+- [JavaScript and TypeScript](./docs/interview/js-ts.md)
+- [Frontend Development - React, Next.js, Redux-toolkit](./docs/interview/front-end.md)
+<!--
 - [Backend Development - Node.js, Express.js]()
 - [MongoDB and mongoose]()
 - [PostgreSQL and prisma]()
