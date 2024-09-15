@@ -10,6 +10,7 @@ Welcome to the developer documentation portal.
 4. [Redux-toolkit Configuration with TypeScript](./docs/typescript/rtk-query.md)
 5. [MongoDB Transactions](./docs/assistant_doc/transaction.md)
 6. [PostgreSQL](./docs/postgreSQL/README.md)
+7. [Essential CLI Commands](./docs/cli/README.md)
 
 # Interview Preparation
 
