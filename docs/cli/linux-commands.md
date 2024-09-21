@@ -16,6 +16,9 @@
   - Q - quit
   - SHIFT+G - to the last line
   - p - to the first line
+- `alias your_command_name="main linux command"` - create alias command for big command
+- `alias -p` - check existing alias
+- `systemctl list-units --type=service --all` - view this list of all services
 
 ### Reference
 
