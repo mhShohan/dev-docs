@@ -96,6 +96,62 @@ sudo systemctl enable docker
 sudo systemctl start docker
 ```
 
-### You are now ready to use Docker and Docker Compose on your Ubuntu 24.04 system!
+# For the permission error solve
 
-If you face any issues or need further customization, feel free to ask.
+The error you're encountering, "permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock", happens because your user doesn't have the necessary permissions to communicate with the Docker daemon. By default, Docker requires root privileges to manage containers.
+
+Here’s how to fix it:
+
+### 1. **Add Your User to the Docker Group**
+
+The most common way to resolve this issue is to add your user to the `docker` group, which grants the required permissions to access the Docker daemon without using `sudo`.
+
+Run the following command:
+
+```bash
+sudo usermod -aG docker $USER
+```
+
+After running this command, log out of your session and log back in, or run the following command to refresh the group membership:
+
+```bash
+newgrp docker
+```
+
+Now try running `docker-compose up` again. You should no longer see the "permission denied" error.
+
+### 2. **Check Docker Group Membership**
+
+To confirm that your user has been successfully added to the `docker` group, you can check your group memberships by running:
+
+```bash
+groups $USER
+```
+
+You should see `docker` listed as one of the groups. If it's not listed, try the steps again, ensuring to log out and log back in.
+
+### 3. **Check Docker Service is Running**
+
+If you're still having issues, make sure the Docker service is running properly:
+
+```bash
+sudo systemctl status docker
+```
+
+If the service is inactive, you can start it with:
+
+```bash
+sudo systemctl start docker
+```
+
+### 4. **Use `sudo` as a Temporary Fix (Optional)**
+
+If you don't want to add your user to the `docker` group, you can run Docker commands with `sudo` as a workaround:
+
+```bash
+sudo docker-compose up
+```
+
+However, adding your user to the `docker` group is the best solution for convenience.
+
+Once you've done this, you should be able to run `docker-compose` commands without facing permission issues.
